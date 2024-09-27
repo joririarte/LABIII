@@ -1,8 +1,31 @@
 # Hola Mundo
 
-## @joririarte escribí los commits
-
 
 Links/Recursos:
-  https://trello.com/b/s2bxL924/tablero-grupo-2
+  - https://cpanel.alfabuenamaravilla.online/
+  - https://trello.com/b/as16SNEV/alfabuenamaravillaonline
+    
   
+
+
+
+  Tecnologías:
+- MySQL
+- CPanel
+- Html
+- PHP
+- Angular
+- Javascript
+- Trello
+
+  Api:
+  - PreguntAPI
+  - 
+
+
+Agregar:
+- capturas
+- descripcion
+- como jugar
+- Aplication set-up (una vez clonado el repo)
+- 
