@@ -7,12 +7,9 @@ class Preguntas {
         try {
             $database = new Database();
             $conn = $database->getConnection();
-
-            // Preparar la consulta
             $stmt = $conn->prepare('CALL AddPregunta(:texto)');
             $stmt->bindParam(':texto', $texto);
 
-            // Ejecutar la consulta
             if ($stmt->execute()) {
                 JsonFormatter::printJsonAnswer('HTTP/1.1 201 Created', ['success' => 'Pregunta creada correctamente']);
             } else {
@@ -29,7 +26,6 @@ class Preguntas {
         try {
             $database = new Database();
             $conn = $database->getConnection();
-
             $stmt = $conn->prepare('CALL DeletePregunta(:id)');
             $stmt->bindParam(':id', $id, PDO::PARAM_INT);
 
@@ -49,7 +45,6 @@ class Preguntas {
         try {
             $database = new Database();
             $conn = $database->getConnection();
-
             $stmt = $conn->prepare('CALL GetAllPreguntas()');
 
             if ($stmt->execute()) {
@@ -73,7 +68,6 @@ class Preguntas {
         try {
             $database = new Database();
             $conn = $database->getConnection();
-
             $stmt = $conn->prepare('CALL GetPregunta(:id)');
             $stmt->bindParam(':id', $id);
 
@@ -97,7 +91,6 @@ class Preguntas {
         try {
             $database = new Database();
             $conn = $database->getConnection();
-
             $stmt = $conn->prepare('CALL UpdatePregunta(:id, :texto)');
             $stmt->bindParam(':id', $id, PDO::PARAM_INT);
             $stmt->bindParam(':texto', $texto);
