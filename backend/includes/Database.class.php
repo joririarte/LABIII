@@ -1,9 +1,9 @@
 <?php
     class Database{
         private $host = 'localhost';
-        private $user = 'buenamaravilla_db_user';
-        private $password = '#Li64Jo10Ri25Sa73#';
-        private $database = 'buenamaravilla_trivia_dev';
+        private $user = 'user';
+        private $password = 'pass';
+        private $database = 'db';
     
         public function getConnection(){
             $hostDB = "mysql:host=".$this->host.";dbname=".$this->database.";charset=utf8mb4";
