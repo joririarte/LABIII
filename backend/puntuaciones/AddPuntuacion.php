@@ -8,7 +8,7 @@
         isset($_POST['tiempo'])){
             Usuarios::AddPuntuacion(    $_POST['idUsuario'], 
                                         $_POST['idCuestionario'], 
-                                        $_POST['puntaje']
+                                        $_POST['puntaje'],
                                         $_POST['tiempo']);
         }
 ?>
