@@ -15,11 +15,21 @@ Implementamos la Api:
 
 - PreguntAPI
   Para obtener cuestionarios,preguntas y sus opciones en formato JSON, sobre lenguajes como C++, PHP, SQL, HTML,JavaScript.
-    
+
+Componentes:
+
+ -  Modo de juego: partidas publicas multijugador.
+ -  Sets de preguntas: creados manualmente o predefinidas.
+ -  Puntuaciones: tablero desde las mejores puntuaciones-
+ -  Niveles de dificultad: Facil, Medio y Dificil.
+ -  Categorias: HTML, CSS, JavaScript, C#, C++ y Java.
+   
+Como jugar
+
+1. Registrase o iniciar sesion.
+2. Crear o seleccionar un cuestionario.
+3. Responde las preguntas en tu mejor tiempo.
 
 Agregar:
 - capturas
-- descripcion
-- como jugar
-- Aplication set-up (una vez clonado el repo)
-- 
+- Aplicacion set-up 
