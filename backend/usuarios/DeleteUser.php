@@ -1,7 +1,7 @@
 <?php
 require_once('../includes/Usuarios.class.php');
 
-if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
+if ($_SERVER['REQUEST_METHOD'] === 'DELETE' && isset($_GET['action']) && $_GET['action'] === 'delete') {
     $input = json_decode(file_get_contents('php://input'), true);
     $username = isset($input['username']) ? $input['username'] : null;
 

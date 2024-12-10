@@ -1,9 +1,9 @@
 <?php
     class Database{
         private $host = 'localhost';
-        private $user = 'user';
-        private $password = 'pass';
-        private $database = 'db';
+        private $user = 'triviadev_db_user';
+        private $password = '#TRIcp4n3lDEV#';
+        private $database = 'triviadev_trivia_dev';
     
         public function getConnection(){
             $hostDB = "mysql:host=".$this->host.";dbname=".$this->database.";charset=utf8mb4";

@@ -1,6 +1,6 @@
 <?php
-require_once('Database.class.php');
-require_once('JsonFormatter.class.php');
+    require_once('Database.class.php');
+    require_once('JsonFormatter.class.php');
 
 class Preguntas {
     public static function AddPregunta($texto) {
@@ -106,6 +106,5 @@ class Preguntas {
             JsonFormatter::printJsonAnswer('HTTP/1.1 500 Error del servidor', ['error' => $e->getMessage()]);
         }
     }
-
 }
 ?>
