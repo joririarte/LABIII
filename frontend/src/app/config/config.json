@@ -1,0 +1,10 @@
+{
+  "apiUrl": "https://triviadev.site/API/",
+  "apiLocal": "https://preguntapi-v3.vercel.app/api/questions?level=dificil&category=csharp&limit=",
+  "apiDesa": "https://preguntapi-v3.vercel.app/api/questions?level=dificil",
+  "apiTest": "",
+  "apiPre": "",
+  "apiProd": "",
+  "redirectLocalHost": "",
+  "redirectDesa" : ""
+}
