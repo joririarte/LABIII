@@ -1,0 +1,103 @@
+<div class="top-bar">
+    <div nz-row nzJustify="space-between" nzAlign="middle" class="h-100">
+        <div nz-col>
+            <h4 class="subTitle">Historial de partidas jugadas y puntajes</h4>
+        </div>
+    </div>
+    <nz-divider class="my-0"></nz-divider>
+</div>
+  
+<br />
+
+<!-- Filtros -->
+<div nz-row [nzGutter]="[16, 16]">
+  <!-- Filtro por nombre -->
+  <div nz-col nzSpan="8">
+    <nz-form-item>
+      <nz-form-label>Nombre</nz-form-label>
+      <nz-form-control>
+        <input nz-input placeholder="Buscar por nombre" [(ngModel)]="filters.name" name="name" (input)="applyFilters()" />
+      </nz-form-control>
+    </nz-form-item>
+  </div>
+
+  <!-- Filtro por categoría -->
+  <div nz-col nzSpan="8">
+    <nz-form-item>
+      <nz-form-label>Categoría</nz-form-label>
+      <nz-form-control>
+        <nz-select [(ngModel)]="filters.category" name="category" placeholder="Seleccione categoría" (ngModelChange)="applyFilters()">
+          <nz-option *ngFor="let option of categoryOptions" [nzValue]="option.value" [nzLabel]="option.label"></nz-option>
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+  </div>
+
+  <!-- Filtro por dificultad -->
+  <div nz-col nzSpan="8">
+    <nz-form-item>
+      <nz-form-label>Dificultad</nz-form-label>
+      <nz-form-control>
+        <nz-select [(ngModel)]="filters.difficulty" name="difficulty" placeholder="Seleccione dificultad" (ngModelChange)="applyFilters()">
+          <nz-option *ngFor="let option of difficultyOptions" [nzValue]="option.value" [nzLabel]="option.label"></nz-option>
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+  </div>
+</div>
+
+<br />
+  
+<div nz-row [nzGutter]="[16, 16]">
+    <div nz-col nzSpan="24">
+        <div class="table-responsive">
+            <nz-table nzBreakWord nzTemplateMode [nzLoading]="loading" class="custom-table">
+            <thead>
+              <tr>
+                <th class="text-center">Nombre cuestionario</th>
+                <th class="text-center">Usuario</th>
+                <th class="text-center">Categoria</th>
+                <th class="text-center">Dificultad</th>
+                <th class="text-center">Tiempo</th>
+                <th class="text-center">Puntaje</th>
+              </tr>
+            </thead>
+            <tbody>
+              <ng-container *ngIf="filteredScores && filteredScores.length > 0">
+                <tr *ngFor="let score of filteredScores">
+                  <td class="text-center">{{ score.cuestionario_nombre}}</td>
+                  <td class="text-center">{{ score.usuario_username}}</td>
+                  <td class="text-center">
+                    <span [class]="setCategory(score.cuestionario_categoria)" style="font-size: 24px;"></span>
+                  </td>
+                  <td class="text-center">
+                    <nz-tag [nzColor]="score.color">{{ score.cuestionario_dificultad | uppercase }}</nz-tag>
+                  </td>
+                  <td class="text-center">{{ score.puntuacion_tiempo}}</td>
+                  <td class="text-center">{{ score.puntuacion_puntaje}}</td>
+                </tr>
+              </ng-container>
+          
+              <!-- Cuando la tabla es vacia -->
+              <ng-container *ngIf="!filteredScores || filteredScores.length === 0">
+                <tr>
+                  <td colspan="8">
+                    <div nz-row nzJustify="center">
+                      <div nz-col nzSpan="24">
+                        No se encontraron registros.
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </ng-container>
+            </tbody>
+            </nz-table> 
+        </div>       
+    </div>
+</div>
+  
+  
+
+
+
+

@@ -1,0 +1,124 @@
+.text {
+  margin: 10px;
+}
+
+.title {
+  color: #0d0d0e;
+  opacity: 0;
+  animation: slideRigth 1s ease forwards;
+  animation-delay: 0.5s;
+}
+
+.subTitle {
+  color: #252627;
+  opacity: 0;
+  animation: slideLeft 1s ease forwards;
+  animation-delay: 1s;
+}
+
+.card {
+  display: inline-block;
+  width: 350px;
+  height: 110px; 
+  border-radius: 10px;
+  margin-left: 10px;
+  transition: all 600ms ease;
+  opacity: 0;
+  animation: slideTop 1s ease forwards;
+  animation-delay: calc(0.2s * var(--i));
+  cursor: pointer;
+  position: relative; 
+}
+
+.tag-container {
+  position: absolute;
+  bottom: 10px;
+  left: 80%; 
+}
+
+.card-icon{
+  color: #5f99f0;
+  background-color: #e0e0e4;
+  border-radius: 30%;
+  display:flex;
+  align-items: center;
+  justify-content:center;
+  width:45px;
+  height:45px;
+  font-size: 24px;
+}
+
+.card:hover {
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
+  transition: all 600ms ease;
+  background: #fafafa;
+}
+
+.time-line{
+  box-shadow: 0 0 0 0.1px black;
+  margin-left: 10px;
+  background: #fff;
+  border-radius: 20px;
+}
+
+.tabset{
+  margin-left: 20px;
+}
+
+.tabset-title{
+  position: relative;
+  top: 20px;
+  left: 20px;
+}
+
+.footer{
+  margin-top: 130px;
+}
+
+@keyframes backgroundAnimation {
+  0% {
+    background-position: left;
+  }
+  100% {
+    background-position: right;
+  }
+}
+
+@keyframes slideTop {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes slideRigth {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideLeft {
+  0% {
+    transform: translateX(200px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .image img{
+    top: -15%;
+    left: 100%;
+  }
+}

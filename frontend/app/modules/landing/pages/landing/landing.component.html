@@ -1,0 +1,43 @@
+<div class="landing-container">
+    <header class="header">
+      <div class="logo">TriviaDev</div>
+      <nav>
+        <a routerLink="/auth/login" class="btn">Iniciar Sesión</a>
+        <a (click)="createUser()" class="btn btn-primary">Registrarse</a>
+      </nav>
+    </header>
+  
+    <main>
+      <!-- Hero Section -->
+      <section class="hero">
+        <h1>Desafía tus conocimientos en programación</h1>
+        <p>Crea cuestionarios, responde los de otros usuarios y compite por el primer lugar en la tabla de puntuaciones global.</p>
+        <div class="hero-actions">
+          <a routerLink="/auth/login" class="btn btn-primary">Comienza Ahora</a>
+        </div>
+      </section>
+  
+      <!-- Características -->
+      <section class="features">
+        <h2>¿Qué puedes hacer?</h2>
+        <div class="feature-list">
+          <div class="feature">
+            <h3>Crea Cuestionarios</h3>
+            <p>Personaliza tus cuestionarios o deja que nuestra API los cree por ti.</p>
+          </div>
+          <div class="feature">
+            <h3>Responde Cuestionarios</h3>
+            <p>Desafía tus habilidades con cuestionarios de otros usuarios.</p>
+          </div>
+          <div class="feature">
+            <h3>Tabla de Puntuaciones</h3>
+            <p>Compite por el primer lugar en la tabla de puntuaciones global.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  
+    <footer>
+      <p>&copy; 2024 TriviaDev. Todos los derechos reservados.</p>
+    </footer>
+</div>

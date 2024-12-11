@@ -1,0 +1,61 @@
+<div class="quiz-container" id="myDiv">
+
+    <!-- Contenedor para el reloj total y el icono de salir -->
+    <div class="header-container">
+      <!-- Reloj total a la izquierda -->
+      <span class="total-timer">
+        {{ totalMinutes }}:{{ totalSeconds | number: '2.0' }}
+      </span>
+
+      <!-- Icono de cruz para salir a la derecha -->
+      <span class="exit-icon" (click)="exitGame()">
+        <i nz-icon nzType="close" nzTheme="outline"></i>
+      </span>
+    </div>
+
+    <!-- Timer para la pregunta actual (20 segundos) -->
+    <div class="timer-container">
+      <div class="timer-circle">
+        <span>{{ questionTime }}</span>
+      </div>
+    </div>
+
+    <div class="question">
+      <label for="question"> Pregunta {{ currentQuestionIndex + 1 }} </label>
+      <ng-container *ngIf="getCurrentQuestion() && getCurrentQuestion().pregunta_texto">
+        <p>{{ getCurrentQuestion().pregunta_texto  }}</p>
+      </ng-container>
+    </div>
+
+    <br />
+    
+    <form>
+        <ng-container>
+          <div *ngFor="let option of getCurrentOptions(); let i = index">
+            <nz-form-item>
+                <nz-form-control [nzSpan]="24" nzHasFeedback>
+                    <input style="cursor: pointer;" (click)="onInputClick(option)" [value]="option.opcion_texto" nz-input type="text" readonly />
+                </nz-form-control>
+            </nz-form-item>
+          </div>
+        </ng-container>
+    </form>
+
+    <br>
+
+    <ng-container *ngIf="endGame">
+      <nz-row>
+        <nz-col [nzSpan]="24">
+          <nz-form-item>
+            <nz-form-control [nzSpan]="24" style="text-align: right;">
+              <button nz-button nzType="primary" [nzLoading]="loading" (click)="endGameEvent()">
+                Terminar juego
+              </button>
+            </nz-form-control>
+          </nz-form-item>
+        </nz-col>
+      </nz-row>
+    </ng-container>
+      
+</div>
+  

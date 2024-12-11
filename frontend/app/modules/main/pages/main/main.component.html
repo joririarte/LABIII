@@ -1,0 +1,66 @@
+<nz-layout class="app-layout">
+
+  <nz-header class="navbar">
+    <div nz-row nzJustify="space-between" class="h-100">
+      <div nz-col class="d-flex align-items-center">
+        <div class="sidebar-logo">
+          <img width="45" height="30" src="assets/png/trivia.png" alt="isologotipo trivia"/>
+        </div>
+      </div>
+      <div nz-col class="d-flex align-items-center">
+        <span
+          class="header-trigger d-block d-lg-none"
+          nz-icon
+          [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+          (click)="isCollapsed = !isCollapsed"
+        ></span>
+      </div>
+    </div>
+  </nz-header>
+
+  <nz-layout>
+
+    <nz-sider
+      nzTheme="light"
+      class="menuSidebar"
+      nzCollapsible
+      [nzCollapsedWidth]="0"
+      nzWidth="240px"
+      nzBreakpoint="lg"
+      [(nzCollapsed)]="isCollapsed"
+      [nzTrigger]="null"
+    >
+      <div>
+        <nz-list [nzBordered]="false">
+          <nz-list-item *ngFor="let item of menuItems" class="item">
+            <div class="item-content" (click)="itemClick(item)">
+              <span nz-icon [nzType]="item.icon" class="icon"></span>
+              <span class="label">{{ item.label }}</span>
+            </div>
+          </nz-list-item>
+        </nz-list>
+      </div>
+    </nz-sider>
+
+    <nz-layout class="container-layout">
+      <nz-content class="inner-content">
+        <div>
+          <router-outlet></router-outlet>
+
+          <br />
+
+          <div class="footer" nz-row>
+            <nz-divider></nz-divider>
+            <div nz-col nzSpan="24" nzXl="23">
+              <div nz-row nzJustify="end">
+                <p nz-typography>TriviaApp - <a>Versión</a> <span nz-typography> <code>11.11.24</code></span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nz-content>
+    </nz-layout>
+
+  </nz-layout>
+
+</nz-layout>

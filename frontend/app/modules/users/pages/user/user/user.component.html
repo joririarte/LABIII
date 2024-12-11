@@ -1,0 +1,29 @@
+<div class="top-bar">
+  <div nz-row nzJustify="space-between" nzAlign="middle" class="h-100">
+      <div nz-col>
+          <h4 class="subTitle">Lista de usuarios activos</h4>
+      </div>
+      <div>
+        <button nz-button>Crear usuario</button>
+      </div>
+  </div>
+  <nz-divider class="my-0"></nz-divider>
+</div>
+
+<br />
+  
+<div nz-row [nzGutter]="[16, 16]">
+    <div nz-col nzSpan="24">
+      <app-users-table
+        [params]="params.tableUsers"
+        [loading]="loading"
+        [users]="usersResponse"
+        (itemEvent)="getItemEvent($event)"
+      ></app-users-table>
+    </div>
+</div>
+  
+  
+
+
+

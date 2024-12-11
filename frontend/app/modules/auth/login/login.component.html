@@ -1,0 +1,36 @@
+<div>
+  <h3 class="text-center mb-0">Te damos la bienvenida</h3>
+  <h4 class="text-center mb-4">Inicia sesión para continuar</h4>
+
+  <!-- Vincula el formulario al FormGroup 'loginForm' -->
+  <form nz-form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <nz-form-item>
+      <nz-form-control nzErrorTip="Please input your username!">
+        <nz-input-group nzPrefixIcon="user">
+          <!-- Elimina el error al vincular el control 'userName' al FormGroup -->
+          <input type="text" nz-input formControlName="userName" placeholder="Username" />
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-control nzErrorTip="Please input your Password!">
+        <nz-input-group nzPrefixIcon="lock">
+          <!-- Elimina el error al vincular el control 'password' al FormGroup -->
+          <input type="password" nz-input formControlName="password" placeholder="Password" />
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <button nz-button class="login-form-button" nzType="primary" [disabled]="loginForm.invalid" [nzLoading]="loading">
+        Iniciar sesión
+      </button>
+    </nz-form-item>
+
+  </form>
+
+
+  <div class="login-footer text-center pt-3">
+    <a (click)="createUser()"> ¿ No tienes cuenta ? Crea una desde aqui</a>
+  </div>
+</div>
