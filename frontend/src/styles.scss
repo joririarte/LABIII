@@ -1,0 +1,1023 @@
+/* You can add global styles to this file, and also import other style files */
+@import "app/common/styles/base/variables";
+
+@import "app/common/styles/utilities/breakpoints";
+@import "app/common/styles/utilities/display";
+@import "app/common/styles/utilities/flex";
+@import "app/common/styles/utilities/sizing";
+@import "app/common/styles/utilities/spacing";
+@import "app/common/styles/utilities/text";
+
+// tucarpeta styles
+* {
+  font-family: "Nunito Sans", sans-serif;
+}
+
+// tucarpeta variables
+$black: #000000;
+$white: #ffffff;
+$gray: #f0f0f0;
+$ant-primary: #1890ff;
+$ant-primary-hover: #40a9ff;
+$ant-primary-1: #e6f7ff;
+$ant-primary-color-outline: rgba(24, 144, 255, 0.2);
+$ant-gray-1: #f5f5f5;
+$ant-gray-2: #e8e8e8;
+$ant-gray-3: #d9d9d9;
+$ant-gray-8: #595959;
+$ant-green-6: #52c41a;
+
+// revix variables
+$purple: #4e92ca;
+
+// Global styles
+.font-bold {
+  font-weight: bold;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.font-italic {
+  font-style: italic;
+}
+
+.text-ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.app-layout {
+  height: 100vh;
+}
+
+.container-layout {
+  max-height: 100vh;
+}
+
+.border-button{
+  border-radius: 5px;
+}
+
+nz-header {
+  padding: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+.app-header {
+  position: relative;
+  height: 72px;
+  background: $white;
+  box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+  padding-right: 16px;
+}
+
+nz-content {
+  padding: 0 16px 24px;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.inner-content {
+  background: #f7f7fa;
+}
+
+.background {
+  background: $gray;
+}
+
+.ant-layout {
+  background: #fff !important;
+}
+
+.ant-layout-header {
+  height: 68px;
+  background: $white;
+  border-bottom: 1.5px solid $gray;
+  padding: 0 24px;
+}
+
+
+
+// Sidebar
+.menuSidebar{
+  position: relative;
+  z-index: 10;
+  overflow-y: auto;
+  border-right: 5px solid $gray;
+  height: 100%;
+}
+
+// Mobile Sidebar
+@media (max-width: 992px) {
+  .menuSidebar{
+    position: absolute;
+    z-index: 102;
+  }
+}
+
+.header-trigger {
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s, padding 0s;
+}
+
+.trigger:hover {
+  color: #1890ff;
+}
+
+.sidebar-logo {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.sidebar-logo img {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.btn-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 24px;
+  gap: 8px;
+}
+
+.btn-nuevo{
+  padding: 0;
+}
+
+// Top bar
+.ant-popover-inner-content // General styles
+
+.noselect {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.cursor-disabled {
+  cursor: not-allowed;
+}
+
+.border-right {
+  border-right: 1px solid #f0f0f0;
+}
+
+.border-bottom {
+  border-bottom: 1px solid #f0f0f0;
+}
+
+// tucarpeta typography
+h3 {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+h4 {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.title-page {
+  font-size: 16px;
+}
+
+.subtitle-page {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+// tucarpeta buttons
+.btn-new {
+  background: $black;
+  border: 1px solid $black;
+  border-radius: 2px;
+  width: 170px;
+  height: 40px;
+}
+
+.btn-primary {
+  background: $black;
+  color: $white;
+  border: 1px solid $black;
+  transition: all 0.5 ease-in-out;
+
+  &:hover {
+    background: $black;
+    color: $white;
+    border: 1px solid $black;
+    opacity: 0.8;
+  }
+
+  &:focus {
+    background: $black;
+    color: $white;
+    border: 1px solid $black;
+    opacity: 0.8;
+  }
+}
+
+.btn-secondary {
+  border-color: $black;
+}
+
+app-btn-button .ant-btn-loading {
+  & span {
+    margin-left: 4px !important;
+  }
+}
+
+.ant-btn[disabled] {
+  & img {
+    -webkit-filter: grayscale(1) invert(1);
+    filter: grayscale(1) invert(1);
+  }
+}
+
+// tucarpeta forms
+.input-pin {
+  width: 100%;
+  height: 40px;
+  border-radius: 2px;
+  padding: 0 10px;
+}
+
+// tucarpeta cards
+.ant-card {
+  overflow: hidden;
+}
+
+.card-gray {
+  background-color: $ant-gray-1;
+  padding: 16px 24px;
+}
+
+.folder-card {
+  border-radius: 4px;
+  width: 100%;
+  cursor: pointer;
+
+  & :hover {
+    background: $ant-gray-1;
+    -webkit-transition: background-color 150ms ease-in-out;
+    -ms-transition: background-color 150ms ease-in-out;
+    transition: background-color 150ms ease-in-out;
+  }
+
+  & .ant-skeleton {
+    display: block;
+  }
+
+  & .ant-card-body {
+    padding: 24px 16px;
+
+    & .ant-card-meta-avatar {
+      left: 16px;
+      position: absolute;
+      width: 40px;
+      font-size: 18px;
+
+      &:hover {
+        background-color: transparent;
+      }
+    }
+
+    & .ant-card-meta-title {
+      margin-left: 24px;
+      line-height: 28px;
+    }
+  }
+}
+
+.files-card {
+  cursor: pointer;
+  height: 100%;
+  border-radius: 0.5em;
+  width: 100%;
+
+  &:hover {
+    border-color: #d9d9d9;
+    -webkit-transition: border-color 150ms ease-in-out;
+    -ms-transition: border-color 150ms ease-in-out;
+    transition: border-color 150ms ease-in-out;
+  }
+
+  .ant-card-body {
+    padding: 16px 16px 16px 8px;
+    position: relative;
+
+    & .more-icon {
+      position: absolute;
+      padding: 0;
+      right: 0px;
+      top: -2px;
+      display: flex;
+    }
+
+    & .ant-card-meta-detail > div:not(:last-child) {
+      margin-bottom: 0;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    & .ant-card-meta-description {
+      font-size: 12px;
+    }
+  }
+
+  & .card-cover {
+    height: 150px;
+    background-color: $ant-gray-1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & .card-hovered-button {
+      align-items: center;
+      display: flex;
+      -webkit-box-pack: center;
+      justify-content: center;
+      position: absolute;
+      width: 100%;
+      height: 150px;
+      z-index: 100;
+
+      & button {
+        opacity: 0;
+      }
+    }
+
+    &:hover {
+      .card-hovered-button {
+        background-color: rgba(30, 30, 30, 0.2);
+        -webkit-transition: background-color 150ms ease-in-out;
+        -ms-transition: background-color 150ms ease-in-out;
+        transition: background-color 150ms ease-in-out;
+
+        & button {
+          opacity: 1;
+        }
+      }
+    }
+
+    & img {
+      width: auto;
+      height: auto;
+      object-fit: cover;
+    }
+  }
+}
+
+.folder-card-selected {
+  background-color: $ant-primary-1;
+  border-color: $ant-primary-hover;
+  box-shadow: 0 0 0 1px $ant-primary-color-outline;
+
+  & :hover {
+    background-color: $ant-primary-1;
+  }
+}
+
+.folder-card-disabled {
+  background-color: $ant-gray-1;
+  border-color: $ant-gray-1;
+  box-shadow: 0 0 0 1px $ant-gray-1;
+
+  & :hover {
+    background-color: $ant-gray-1;
+  }
+}
+
+.folder-card-disabled {
+  & .ant-card-meta-title,
+  .ant-card-meta-description,
+  .anticon,
+  .mdi {
+    color: $ant-gray-3;
+  }
+}
+
+.folder-card-selected {
+  & .ant-card-meta-title,
+  .ant-card-meta-description,
+  .anticon,
+  .mdi {
+    color: $ant-primary;
+  }
+}
+
+.card-with-table {
+  margin-bottom: 24px;
+  margin-top: -8px;
+  & .ant-card-body {
+    padding: 8px 0;
+  }
+  & .ant-table-tbody > tr:last-of-type > td {
+    border-bottom: 0;
+  }
+}
+
+// tucarpeta ribbon
+.ant-ribbon {
+  z-index: 100;
+}
+
+// tucarpeta modals
+.illustration-modal {
+  margin-bottom: -32px;
+  margin-top: 40px;
+}
+
+.title-wrapper {
+  margin-top: 24px;
+  text-align: center;
+
+  .title-modal {
+    margin-bottom: 8px;
+    font-size: 24px;
+    font-weight: 700;
+  }
+}
+
+.subtitle-wrapper {
+  margin-bottom: 32px;
+  text-align: center;
+
+  .subtitle {
+    font-size: 16px;
+    font-weight: 400;
+  }
+}
+
+.info-wrapper {
+  background: $ant-gray-1;
+  padding: 8px;
+
+  & .title {
+    font-weight: 700;
+  }
+}
+
+.top-bar {
+  height: 72px;
+  margin-bottom: 24px;
+  position: sticky;
+  top: 0;
+  z-index: 101;
+  background-color: #f7f7fa;
+  width: calc(100% + 32px);
+  padding: 24px 16px 0;
+  margin-left: -16px;
+}
+
+.collapse-folder {
+  font-weight: bold;
+
+  & .mdi {
+    font-size: 16px;
+  }
+}
+
+// tucarpeta empty
+.ant-empty-image {
+  margin-bottom: 24px;
+  margin-top: 72px;
+  height: auto;
+}
+
+.ant-empty-description {
+  margin: 0 auto;
+
+  & span {
+    color: $ant-gray-8;
+  }
+}
+
+// tucarpeta breadcrumb
+.breadcrumb-container {
+  background-color: $ant-gray-1;
+  margin: 0 -1rem;
+  padding: 1rem;
+
+  & .breadcrumb-title {
+    font-size: 20px;
+    margin-bottom: 0;
+    font-weight: 600;
+    margin-right: 0.5rem;
+  }
+
+  & .breadcrumb-info {
+    color: rgba(0, 0, 0, 0.45);
+    margin-right: 0.5rem;
+    margin-bottom: 0;
+    margin-top: 2px;
+  }
+
+  & .breadcrumb-tag {
+    margin-top: -2px;
+  }
+}
+
+.ant-breadcrumb {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+app-btn-breadcrumb {
+  & nz-breadcrumb-item:first-of-type {
+    & app-btn-material-icon {
+      display: inline-block;
+    }
+  }
+
+  & app-btn-material-icon {
+    font-size: 18px;
+    padding-right: 5px;
+    display: none;
+  }
+}
+
+.ant-breadcrumb > nz-breadcrumb-item:last-child app-btn-material-icon {
+  color: rgba(0, 0, 0, 0.85);
+}
+
+// tucarpeta user menu
+.user-menu-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 24px;
+}
+
+.user-menu {
+  & ul.ant-menu-inline {
+    border-right: 0;
+    & li.ant-menu-item {
+      padding-left: 0.5rem !important;
+      padding-right: 0.5rem;
+      & app-btn-material-icon {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+.user-avatar-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.user-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #f5f5f5;
+  overflow: hidden;
+}
+
+.user-info {
+  margin-left: 8px;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.user-name {
+  font-weight: 500;
+  color: $black;
+}
+
+.user-company {
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.user-icon {
+  font-size: 18px;
+  padding-left: 1rem;
+}
+
+// tucarpeta tag ribbon
+.multiple-ribbon {
+  & .ant-ribbon.ant-ribbon-placement-end:nth-child(2) {
+    top: 40px;
+  }
+}
+
+.test {
+  & .ant-ribbon {
+    display: none;
+  }
+}
+
+.test2 {
+  & .ant-ribbon {
+    display: block;
+  }
+}
+
+.test3 {
+  & .ant-ribbon {
+    display: none;
+  }
+}
+
+// tucarpeta avatar my account
+.avatar-uploader {
+  .ant-upload.ant-upload-select-picture-card {
+    border-radius: 50%;
+    border: 0;
+    background-color: #d9d9d9;
+
+    & .anticon {
+      font-size: 24px;
+    }
+  }
+}
+
+// tucarpeta dropdown
+.ant-dropdown-menu-submenu-title {
+  & span:nth-child(2) {
+    padding-left: 8px;
+  }
+}
+
+ul.ant-dropdown-menu {
+  & li.ant-dropdown-menu-item {
+    & app-btn-material-icon {
+      font-size: 16px;
+    }
+  }
+}
+
+// tucarpeta animation
+.rotate-icon {
+  & .mdi::before {
+    -moz-transition: all 0.3s linear;
+    -webkit-transition: all 0.3s linear;
+    transition: all 0.3s linear;
+  }
+}
+
+.rotate-icon.down {
+  & .mdi::before {
+    -moz-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+}
+
+// tucarpeta content
+.empty-content {
+  margin-top: 1em;
+  color: #8c8c8c;
+  padding-left: 1em;
+}
+
+// tucarpeta card checkbox disabled
+.disabled-card {
+  cursor: not-allowed;
+
+  &:hover {
+    .option-checkbox-wrapper,
+    .option-title-wrapper,
+    .option-text-wrapper {
+      /*display: none;*/
+    }
+
+    & .disabled-overlay {
+      & .option-title-wrapper,
+      .option-text-wrapper {
+        display: block;
+      }
+    }
+
+    & .icon-wrapper {
+      & img {
+        filter: blur(4px);
+        opacity: 0.7;
+      }
+    }
+  }
+}
+
+// tucarpeta primary text
+.primary-text {
+  color: $ant-primary;
+  font-weight: 700;
+}
+
+// table responsive
+@media (max-width: 768px) {
+  .ant-table-content {
+    overflow: auto;
+  }
+}
+
+// filters
+.filter-container {
+  background-color: $white;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 0 0 0.1px black;
+}
+
+// steps
+@media (max-width: 768px) {
+  .steps-responsive {
+    overflow-x: auto;
+    overflow: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    width: 100%;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    &.ant-steps-horizontal:not(.ant-steps-label-vertical)
+      .ant-steps-item:first-child {
+      padding-left: 16px;
+    }
+
+    &.ant-steps-horizontal:not(.ant-steps-label-vertical) .ant-steps-item {
+      padding-left: 32px;
+    }
+  }
+}
+
+// Upload
+.h-auto {
+  & .ant-upload.ant-upload-drag {
+    height: auto;
+    border-radius: 10px;
+  }
+}
+
+// Card grids
+.ant-row {
+  & .card-grids {
+    height: 100%;
+
+    & .ant-card-body {
+      height: 100%;
+
+      & div.d-flex {
+        height: 100%;
+      }
+    }
+  }
+}
+
+.card-grid {
+  & .ant-card-head {
+    background: #fafafa;
+  }
+  & .ant-card-head-title {
+    font-size: 16px;
+    font-weight: 600;
+    padding: 12px 0;
+  }
+  & .title {
+    color: rgba(0, 0, 0, 0.6);
+  }
+  & .subtitle {
+    color: rgba(0, 0, 0, 0.85);
+    font-weight: 600;
+  }
+}
+
+.card-grids {
+  border-left: 0;
+
+  & .ant-card-head {
+    border-left: 1px solid #f0f0f0;
+    background: #fafafa;
+  }
+
+  & .ant-card-body {
+    padding: 0;
+  }
+
+  & .ant-card-head-title {
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  & .ant-card-grid {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-align: left !important;
+
+    &:hover {
+      box-shadow: 1px 0 0 0 #f0f0f0, 0 1px 0 0 #f0f0f0, 1px 1px 0 0 #f0f0f0,
+        1px 0 0 0 #f0f0f0 inset, 0 1px 0 0 #f0f0f0 inset;
+      cursor: initial;
+    }
+
+    & .title {
+      color: rgba(0, 0, 0, 0.6);
+    }
+    & .subtitle {
+      font-weight: 600;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .card-grids {
+    & .ant-card-grid {
+      width: 50% !important;
+    }
+  }
+}
+
+// Details
+.title-detail-container {
+  border-bottom: 1px solid #f0f0f0;
+  padding-top: 8px;
+  & .subtitle {
+    color: rgba(0, 0, 0, 0.6);
+  }
+}
+
+/* Estilos para la paginacion */
+.custom-pagination .ant-pagination-item,
+.custom-pagination .ant-pagination-prev,
+.custom-pagination .ant-pagination-next,
+.custom-pagination .ant-pagination-jump-prev,
+.custom-pagination .ant-pagination-jump-next,
+.custom-pagination .ant-pagination-item-link {
+  border-radius: 10px !important;
+}
+
+/* Estilos para las tablas */
+.custom-table{
+  box-shadow: 0 0 0 0.1px black;
+  border-radius: 10px; 
+  overflow: hidden; 
+}
+
+.custom-table .ant-table-thead > tr > th {
+  background-color: #dee5f0;
+}
+
+.custom-table .ant-table-thead > tr > th:first-child {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.custom-table .ant-table-thead > tr > th:last-child {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+// pay table
+.pay-table {
+  & .ant-table-thead > tr > th {
+    background-color: $purple;
+    color: $white;
+    font-weight: 600;
+    padding: 5px 16px;
+  }
+  & .ant-table-tbody > tr > td {
+    padding: 12px 16px;
+  }
+  & .ant-form-item {
+    margin-bottom: 0;
+  }
+  & .ant-input-affix-wrapper {
+    width: 105px;
+    & input.ant-input {
+      text-align: right;
+    }
+  }
+}
+
+// checkmark animation
+.checkmark__circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+  stroke: $ant-green-6;
+  fill: none;
+  animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmark {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin-right: 8px;
+  display: block;
+  stroke-width: 2;
+  stroke: #fff;
+  stroke-miterlimit: 10;
+  box-shadow: inset 0px 0px 0px $ant-green-6;
+  animation: fill 0.4s ease-in-out 0.4s forwards,
+    scale 0.3s ease-in-out 0.9s both;
+}
+
+.checkmark__check {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes scale {
+  0%,
+  100% {
+    transform: none;
+  }
+
+  50% {
+    transform: scale3d(1.1, 1.1, 1);
+  }
+}
+
+@keyframes fill {
+  100% {
+    box-shadow: inset 0px 0px 0px 30px $ant-green-6;
+  }
+}
+
+// card folder
+.card-folder {
+  width: 100%;
+  position: relative;
+  background-color: $white;
+  border: 1px solid $ant-gray-3;
+  border-radius: 0 8px 8px 8px;
+  padding: 12px;
+  margin-top: 3px;
+  box-shadow: rgba(133, 78, 202, 0.12) 0px 2px 8px;
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0.8em;
+    width: 4em;
+    height: 5px;
+    top: -16px;
+    background: $purple;
+    border-radius: 0 0 5px 5px;
+  }
+  &:before {
+    content: "";
+    width: 50%;
+    height: 16px;
+    border-radius: 8px 20px 0 0;
+    background-color: $white;
+    border-top: 1px solid $ant-gray-3;
+    border-left: 1px solid $ant-gray-3;
+    border-right: 1px solid $ant-gray-3;
+    position: absolute;
+    top: -16px;
+    left: -1px;
+  }
+  & .subtitle {
+    color: rgba(0, 0, 0, 0.6);
+    font-weight: 400;
+  }
+  & .title {
+    font-weight: 600;
+  }
+}
+
+// Badge
+.badge-lg {
+  & .ant-badge-count {
+    min-width: 36px;
+    font-size: 15px;
+    line-height: 21px;
+  }
+}
