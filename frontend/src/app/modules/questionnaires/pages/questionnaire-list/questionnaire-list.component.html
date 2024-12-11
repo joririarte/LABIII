@@ -1,0 +1,126 @@
+<div class="top-bar">
+    <div nz-row nzJustify="space-between" nzAlign="middle" class="h-100">
+        <div nz-col>
+            <h4 class="subTitle">Listado de cuestionarios activos</h4>
+        </div>
+        <div nz-col>
+          <button (click)="createQuestionnaire()" nz-button nzType="primary">
+            Crear cuestionario
+          </button>
+      </div>
+    </div>
+    <nz-divider class="my-0"></nz-divider>
+</div>
+  
+<br />
+
+<!-- Filtros -->
+<div nz-row [nzGutter]="[16, 16]">
+  <!-- Filtro por nombre -->
+  <div nz-col nzSpan="8">
+    <nz-form-item>
+      <nz-form-label>Nombre</nz-form-label>
+      <nz-form-control>
+        <input nz-input placeholder="Buscar por nombre" [(ngModel)]="filters.name" name="name" (input)="applyFilters()" />
+      </nz-form-control>
+    </nz-form-item>
+  </div>
+
+  <!-- Filtro por categoría -->
+  <div nz-col nzSpan="8">
+    <nz-form-item>
+      <nz-form-label>Categoría</nz-form-label>
+      <nz-form-control>
+        <nz-select [(ngModel)]="filters.category" name="category" placeholder="Seleccione categoría" (ngModelChange)="applyFilters()">
+          <nz-option *ngFor="let option of categoryOptions" [nzValue]="option.value" [nzLabel]="option.label"></nz-option>
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+  </div>
+
+  <!-- Filtro por dificultad -->
+  <div nz-col nzSpan="8">
+    <nz-form-item>
+      <nz-form-label>Dificultad</nz-form-label>
+      <nz-form-control>
+        <nz-select [(ngModel)]="filters.difficulty" name="difficulty" placeholder="Seleccione dificultad" (ngModelChange)="applyFilters()">
+          <nz-option *ngFor="let option of difficultyOptions" [nzValue]="option.value" [nzLabel]="option.label"></nz-option>
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+  </div>
+</div>
+
+<br/>
+  
+<div nz-row [nzGutter]="[16, 16]">
+    <div nz-col nzSpan="24">
+        <div class="table-responsive">
+            <nz-table nzBreakWord nzTemplateMode [nzLoading]="loading" class="custom-table">
+            <thead>
+              <tr>
+                <th class="text-center">Nombre</th>
+                <th class="text-center">Número</th>
+                <th class="text-center">Categoria</th>
+                <th class="text-center">Dificultad</th>
+                <th class="text-center">Fecha</th>
+                <th class="text-center">Cantidad preguntas</th>
+                <th class="text-center">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <ng-container *ngIf="filteredQuestionnaires && filteredQuestionnaires.length > 0">
+                <tr *ngFor="let questionnaire of filteredQuestionnaires">
+                  <td class="text-center">{{ questionnaire.cuestionario_nombre}}</td>
+                  <td class="text-center">{{ questionnaire.cuestionario_id}}</td>
+                  <td class="text-center">
+                    <span [class]="setCategory(questionnaire.cuestionario_categoria)" style="font-size: 24px;"></span>
+                  </td>
+                  <td class="text-center">
+                    <nz-tag [nzColor]="questionnaire.color">{{ questionnaire.cuestionario_dificultad | uppercase }}</nz-tag>
+                  </td>
+                  <td class="text-center">{{ questionnaire.cuestionario_fecha}}</td>
+                  <td class="text-center">{{ questionnaire.cuestionario_cantidad_preguntas ? questionnaire.cuestionario_cantidad_preguntas : '-'}}</td>
+                  <td class="text-center">
+                    <span 
+                      nz-popover 
+                      nzPopoverTrigger="click" 
+                      [nzPopoverContent]="popoverMenu"
+                      nzPlacement="bottomRight">
+                      <i nz-icon nzType="ellipsis" nzTheme="outline" class="vertical-ellipsis"></i>
+                    </span>
+
+                    <ng-template #popoverMenu>
+                        <ul nz-menu>
+                            <li nz-menu-item (click)="addQuestions(questionnaire)">Agregar preguntas</li>
+                            <li nz-menu-item (click)="addQuestionsAutomatic(questionnaire)">Generar preguntas</li>
+                        </ul>
+                    </ng-template>
+                  </td>      
+                </tr>
+              </ng-container>
+          
+              <!-- Cuando la tabla es vacia -->
+              <ng-container *ngIf="!filteredQuestionnaires || filteredQuestionnaires.length === 0">
+                <tr>
+                  <td colspan="8">
+                    <div nz-row nzJustify="center">
+                      <div nz-col nzSpan="24">
+                        No se encontraron registros.
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </ng-container>
+            </tbody>
+            </nz-table> 
+        </div>       
+    </div>
+</div>
+  
+  
+
+
+
+
+

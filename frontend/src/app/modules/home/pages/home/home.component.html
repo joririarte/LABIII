@@ -1,0 +1,52 @@
+<div nz-row [nzGutter]="[16, 16]" nzJustify="space-between" nzAlign="middle">
+  <!-- Información de bienvenida -->
+  <div class="text" nz-col>
+    <h3 class="title">¡Hola {{ user.usuario_username }}!</h3>
+    <h4 class="subTitle">Haz click en un cuestionario y comienza a jugar.</h4>
+  </div>
+
+  <!-- Selector de categoría -->
+  <div nz-col [nzFlex]="'200px'" class="category-selector">
+    <nz-select
+      [(ngModel)]="selectedCategory"
+      name="category"
+      placeholder="Filtrar por categoría"
+      (ngModelChange)="filterCards()"
+      style="width: 100%;"
+    >
+      <nz-option *ngFor="let option of categoryOptions" [nzValue]="option.value" [nzLabel]="option.label"></nz-option>
+    </nz-select>
+  </div>
+</div>
+
+
+<ng-container *ngIf="filteredCards && filteredCards.length > 0">
+  <div nz-row>
+    <div nz-col *ngFor="let card of filteredCards" (click)="viewQuestionnaire(card.id)">
+      <nz-card class="card" [style]="card.number" [nzLoading]="loading">
+        <nz-card-meta
+          [nzTitle]="card.title"
+          [nzDescription]="card.subTitle"
+          [nzAvatar]="avatarTemplate"
+        ></nz-card-meta>
+        <div class="tag-container">
+          <nz-tag [nzColor]="card.color">{{ card.difficulty }}</nz-tag>
+        </div>
+      </nz-card>
+      <ng-template #avatarTemplate>
+        <span [class]="card.icon"></span>
+      </ng-template>
+    </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="filteredCards && filteredCards.length === 0 && selectedCategory !== ''">
+  <br>
+  <p>No se encontraron resultados de la categoria "{{ selectedCategory }}"</p>
+</ng-container>
+
+
+
+
+
+

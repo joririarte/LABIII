@@ -1,0 +1,92 @@
+<div class="title-wrapper">
+    <h1 class="title-modal">
+      Crear cuestionario
+    </h1>
+    <nz-divider></nz-divider>
+  </div>
+  
+
+    <div nz-row [nzGutter]="24">
+      <div nz-col class="gutter-row" nzSpan="24" nzSm="12">
+        Fecha
+        <nz-form-item>
+            <nz-form-control>
+              <nz-date-picker (ngModelChange)="onDateChange($event)" [ngModel]="formValues.date" style="width: 100%;" nzAllowClear="false"></nz-date-picker>
+            </nz-form-control>
+        </nz-form-item>
+          
+      </div>
+      <div nz-col class="gutter-row" nzSpan="24" nzSm="12">
+        Categoria
+        <nz-form-item>
+            <nz-select nzPlaceHolder="Seleccionar" (ngModelChange)="categoryChange($event)" [(ngModel)]="formValues.category" style="width: 100%;">
+                <nz-option nzValue="html" nzLabel="HTML"></nz-option>
+                <nz-option nzValue="css" nzLabel="CSS"></nz-option>
+                <nz-option nzValue="javascript" nzLabel="JavaScript"></nz-option>
+                <nz-option nzValue="cpp" nzLabel="C#"></nz-option>
+                <nz-option nzValue="C++" nzLabel="C++"></nz-option>
+                <nz-option nzValue="java" nzLabel="Java"></nz-option>
+            </nz-select>
+        </nz-form-item>
+      </div>
+    </div>
+
+    <div nz-row [nzGutter]="24">
+      <div nz-col class="gutter-row" nzSpan="24" nzSm="12">
+        Dificultad
+        <nz-form-item>
+            <nz-select nzPlaceHolder="Seleccionar" (ngModelChange)="dificultadChange($event)" [(ngModel)]="formValues.dificultad" style="width: 100%;">
+                <nz-option nzValue="facil" nzLabel="Facil"></nz-option>
+                <nz-option nzValue="medio" nzLabel="Medio"></nz-option>
+                <nz-option nzValue="dificil" nzLabel="Dificil"></nz-option>
+            </nz-select>
+        </nz-form-item>
+      </div>
+      <div nz-col class="gutter-row" nzSpan="24" nzSm="12">
+        Cantidad de preguntas
+        <nz-form-item>
+            <nz-select nzPlaceHolder="Seleccionar" (ngModelChange)="questionCountChange($event)" [(ngModel)]="formValues.questionCount" style="width: 100%;">
+                <nz-option nzValue="1" nzLabel="1"></nz-option>
+                <nz-option nzValue="2" nzLabel="2"></nz-option>
+                <nz-option nzValue="3" nzLabel="3"></nz-option>
+                <nz-option nzValue="4" nzLabel="4"></nz-option>
+                <nz-option nzValue="5" nzLabel="5"></nz-option>
+            </nz-select>
+        </nz-form-item>
+      </div>
+    </div>
+
+    <div nz-row [nzGutter]="24">
+      <div nz-col class="gutter-row" nzSpan="24" nzSm="12">
+        Nombre
+        <nz-form-item>
+          <nz-input-group>
+            <input
+              nz-input
+              placeholder="Nombre"
+              [(ngModel)]="formValues.name"
+              (ngModelChange)="nameChange($event)"
+              style="width: 100%;"
+            />
+          </nz-input-group>
+        </nz-form-item>
+      </div>
+    </div>    
+
+  <br>
+
+  <div nz-row nzJustify="end" nzAlign="middle" [nzGutter]="16" style="width: 100%;">
+    <div nz-col nzSpan="5" class="gutter-row">
+      <button (click)="cancel()" nz-button nzType="default">
+        Cancelar
+      </button>
+    </div>
+    <div nz-col nzSpan="6" class="gutter-row">
+      <button (click)="postQuestionnaire()" [disabled]="submitButton" [nzLoading]="loading" nz-button nzType="primary">
+        Confirmar
+      </button>
+    </div>
+  </div>
+  
+
+
