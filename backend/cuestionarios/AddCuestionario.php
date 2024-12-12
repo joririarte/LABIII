@@ -11,16 +11,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     // Verificar que todos los parámetros necesarios estén presentes
-    if (isset($data['fecha']) && isset($data['categoria']) && isset($data['dificultad']) && isset($data['cantPreguntas'])) {
+    if (isset($data['fecha'])           && 
+        isset($data['categoria'])       && 
+        isset($data['dificultad'])      && 
+        isset($data['cantPreguntas'])   &&
+        isset($data['nombre'])) {
         
         // Limpiar y asignar los parámetros
         $fecha = $data['fecha'];
         $categoria = $data['categoria'];
         $dificultad = $data['dificultad'];
-        $cantPreguntas = (int)$data['cantPreguntas']; // Convertir a entero
+        $cantPreguntas = (int)$data['cantPreguntas'];
+        $nombre = $data['nombre'];
 
         // Llamar al método para agregar el cuestionario
-        Cuestionarios::AddCuestionario($fecha, $categoria, $dificultad, $cantPreguntas);
+        Cuestionarios::AddCuestionario($fecha, $categoria, $dificultad, $cantPreguntas, $nombre);
 
     } else {
         // Si faltan parámetros, devolver un error

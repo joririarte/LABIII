@@ -3,15 +3,16 @@
     require_once('JsonFormatter.class.php');
 
     class Cuestionarios{
-        public static function AddCuestionario($fecha,$categoria,$dificultad,$cantPreguntas) {
+        public static function AddCuestionario($fecha,$categoria,$dificultad,$cantPreguntas,$nombre) {
             try {
                 $database = new Database();
                 $conn = $database->getConnection();
-                $stmt = $conn->prepare('CALL AddCuestionario(:fecha,:categoria,:dificultad,:cantPreguntas)');
+                $stmt = $conn->prepare('CALL AddCuestionario(:fecha,:categoria,:dificultad,:cantPreguntas, :nombre)');
                 $stmt->bindParam(':fecha', $fecha);
                 $stmt->bindParam(':categoria', $categoria);
                 $stmt->bindParam(':dificultad', $dificultad);
                 $stmt->bindParam(':cantPreguntas', $cantPreguntas);
+                $stmt->bindParam(':nombre', $nombre);
         
                 if ($stmt->execute()) {
                     JsonFormatter::printJsonAnswer('HTTP/1.1 201 OK', ['success' => 'pregunta creada correctamente']);
@@ -25,30 +26,6 @@
             }
         }
         
-
-        // public static function GetAllCuestionario() {
-        //     try {
-        //         $database = new Database();
-        //         $conn = $database->getConnection();
-        
-        //         $stmt = $conn->prepare('CALL GetAllCuestionario()');
-        
-        //         if ($stmt->execute()) {
-        //             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        //             if (!empty($result)) {
-        //                 JsonFormatter::printJsonAnswer('HTTP/1.1 200 OK', $result);
-        //             } else {
-        //                 JsonFormatter::printJsonAnswer('HTTP/1.1 404 Cuestionarios no encontrados',['error' => 'Cuestionarios no encontrados']);
-        //             }
-        //         } else {
-        //             $errorInfo = $stmt->errorInfo();
-        //             $errorMessage = $errorInfo[2];
-        //             JsonFormatter::printJsonAnswer('HTTP/1.1 404 Cuestionario no válido', ['error' => $errorMessage]);
-        //         }
-        //     } catch (PDOException $e) {
-        //         JsonFormatter::printJsonAnswer('HTTP/1.1 500 Error del servidor', ['error' => $e->getMessage()]);
-        //     }
-        // }
 
         public static function GetAllCuestionario() {
             try {
@@ -146,7 +123,9 @@
             $stmt->bindParam(':preguntaID', $preguntaID);
             $stmt->execute();
             
-            return $stmt->fetchAll(PDO::FETCH_ASSOC); // Devuelve un array de opciones
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
         } 
+
+
     }
 ?>

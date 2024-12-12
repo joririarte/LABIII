@@ -50,6 +50,27 @@
             } catch (PDOException $e) {
                 JsonFormatter::printJsonAnswer('HTTP/1.1 500 Error del servidor', ['error' => $e->getMessage()]);
             }
-        }     
+        }
+        
+        public static function GetPuntuacionesCuestionario($id){
+            try {
+                $database = new Database();
+                $conn = $database->getConnection();
+        
+                $stmt = $conn->prepare('CALL GetPuntuacionesCuestionario(:id_cuestionario)');
+                $stmt->bindParam(':id_cuestionario', $id);
+        
+                if ($stmt->execute()) {
+                    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    JsonFormatter::printJsonAnswer('HTTP/1.1 201 OK', $result);
+                } else {
+                    $errorInfo = $stmt->errorInfo();
+                    $errorMessage = $errorInfo[2];        
+                    JsonFormatter::printJsonAnswer('HTTP/1.1 404 Puntuaciones no encontradas', ['error' => $errorMessage]);
+                }
+            } catch (PDOException $e) {
+                JsonFormatter::printJsonAnswer('HTTP/1.1 500 Error del servidor', ['error' => $e->getMessage()]);
+            }
+        }
     }
 ?>
